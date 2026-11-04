@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Intranet del personal de VisiónCreativa.">
+    <meta name="author" content="Equipo VisiónCreativa">
+    <title>Intranet - VisiónCreativa</title>
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Logo y menú interno -->
+    <header>
+        <div class="logo-container">
+            <a href="../www.visioncreativa.local/index.html"><img src="../img/logo.png" alt="Logo VisiónCreativa"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="intranet.html" class="active">Inicio interno</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#herramientas">Herramientas</a></li>
+                <li><a href="../www.visioncreativa.local/index.html">Web de la empresa</a></li>
+                <li><a href="login.html">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Avisos para el personal -->
+        <section>
+            <h1>Bienvenido al área privada</h1>
+            <p>Esta zona es solo para empleados de VisiónCreativa.</p>
+            <article class="aviso">
+                <h3>Noticia importante</h3>
+                <p>Reunión general el viernes a las 10:00 en la sala de conferencias.</p>
+            </article>
+            <article class="aviso">
+                <h3>Recordatorio</h3>
+                <p>Guardad los diseños terminados en la carpeta compartida al acabar la jornada.</p>
+            </article>
+        </section>
+
+        <!-- Tabla de proyectos -->
+        <section id="proyectos">
+            <h2>Proyectos en curso</h2>
+            <div class="tabla-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Proyecto</th>
+                            <th>Responsable</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Panadería Aranzadi</td>
+                            <td>Identidad corporativa</td>
+                            <td>Diseño</td>
+                            <td>En curso</td>
+                        </tr>
+                        <tr>
+                            <td>Taller Goikoetxea</td>
+                            <td>Web de 3 páginas</td>
+                            <td>Desarrollo</td>
+                            <td>Pendiente</td>
+                        </tr>
+                        <tr>
+                            <td>Café Ibaizabal</td>
+                            <td>Redes sociales</td>
+                            <td>Marketing</td>
+                            <td>Entregado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Herramientas internas -->
+        <section id="herramientas">
+            <h2>Herramientas internas</h2>
+            <!-- Ejemplos de herramientas internas en los enlaces -->
+            <ul>
+                <li><a href="http://portainer.visioncreativa.com" target="_blank">Portainer (gestión de contenedores)</a></li>
+                <li><a href="http://code.visioncreativa.com" target="_blank">Editor de código</a></li>
+                <li><a href="http://backup.visioncreativa.com" target="_blank">Copias de seguridad</a></li>
+            </ul>
+        </section>
+    </main>
+    <!--Pie de pagina-->
+    <footer>
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>Soporte técnico</h3>
+            <p><a href="mailto:soporte@visioncreativa.com">soporte@visioncreativa.com</a></p>
+        </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 VisiónCreativa. Uso interno.</p>
+</footer>
+</body>
+</html>

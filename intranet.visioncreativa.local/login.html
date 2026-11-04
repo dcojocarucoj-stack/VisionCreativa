@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acceso para empleados de VisiónCreativa.">
+    <meta name="author" content="Equipo VisiónCreativa">
+    <title>Login - VisiónCreativa</title>
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Solo el logo, porque es el login -->
+    <header>
+        <div class="logo-container">
+            <a href="../www.visioncreativa.local/index.html"><img src="../img/logo.png" alt="Logo VisiónCreativa"></a>
+        </div>
+    </header>
+
+    <!-- Formulario para que entren los empleados -->
+    <main id="login">
+        <h1>Acceso empleados</h1>
+        <form id="loginForm">
+            <p>
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Tu usuario de empleado" required>
+            </p>
+            <p>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="assword" placeholder="Tu contraseña" required>
+            </p>
+            <p><input type="submit" value="Entrar"></p>
+        </form>
+        <!-- Por si quieres volver a la web pública -->
+        <p><a href="../www.visioncreativa.local/index.html">Volver a la web pública</a></p>
+    </main>
+
+    <!-- Este script comprueba el usuario y la contraseña -->
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            var usuario = document.getElementById("usuario").value;
+            var password = document.getElementById("password").value;
+
+            // Usuario: admin / Contraseña: 1234
+            if (usuario == "admin" && password == "1234") {
+                // Si está bien, te lleva a la intranet
+                window.location.href = "intranet.html";
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+            }
+        });
+    </script>
+</body>
+</html>

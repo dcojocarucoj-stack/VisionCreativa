@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de contacto de VisiónCreativa.">
+    <meta name="author" content="Equipo VisiónCreativa">
+    <title>Contacto - VisiónCreativa</title>
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="../img/logo.png" alt="Logo VisiónCreativa"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienesomos.html">Quiénes somos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+                <li><a href="../intranet.visioncreativa.local/login.html">Intranet</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Formulario de contacto</h1>
+        <form id="formularioContacto">
+            <!-- Datos personales -->
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required minlength="3" placeholder="Escribe tu nombre">
+            </p>
+            <p>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required minlength="3" maxlength="40" placeholder="Escribe tus apellidos">
+            </p>
+            <p>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required min="16" max="65" placeholder="mínimo 16">
+            </p>
+            <p>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej. 600123456" required>
+            </p>
+            <p>
+                <label for="cp">Código postal:</label>
+                <input type="text" id="cp" name="cp" placeholder="Ej. 48901" required>
+
+            </p>
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+
+            </p>
+            <p>
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="nacimiento" name="nacimiento" required>
+            </p>
+
+            <!-- Los radios tienen el mismo name para marcar solo uno -->
+            <p>Tipo de mensaje:</p>
+            <p>
+                <input type="radio" name="tipo" id="duda" value="duda" required>
+                <label for="duda">Duda</label>
+                <input type="radio" name="tipo" id="sugerencia" value="sugerencia">
+                <label for="sugerencia">Sugerencia</label>
+                <input type="radio" name="tipo" id="queja" value="queja">
+                <label for="queja">Queja</label>
+                <input type="radio" name="tipo" id="otros" value="otros">
+                <label for="otros">Otros</label>
+            </p>
+
+            <!-- Mensaje del usuario (mínimo 20 caracteres) -->
+            <p>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu consulta" minlength="20" required></textarea>
+
+            </p>
+
+            <!-- Se pueden subir varios archivos, solo PDF o Word -->
+            <p>
+                <label for="documentos">Documentos (PDF o Word):</label>
+                <input type="file" id="documentos" name="documentos" accept=".pdf,.doc,.docx" multiple>
+            </p>
+
+            <!-- Casilla obligatoria de protección de datos -->
+            <p>
+                <input type="checkbox" id="privacidad" name="privacidad" required>
+                <label for="privacidad">Acepto las condiciones de Protección de datos</label>
+            </p>
+
+            <!-- Aquí JavaScript escribe los errores -->
+            <div id="errores"></div>
+
+            <p><input type="submit" value="Enviar mensaje"></p>
+        </form>
+
+        <!-- Aquí sale el resumen si todo está bien -->
+        <div id="mensajeExito"></div>
+    </main>
+    <!-- pie de pagina -->
+    <footer>
+        <!-- datos de contacto -->
+        <div class="footer-columna">
+            <h3>Contacto</h3>
+            <p><i class="fa-solid fa-location-dot"></i> Amorebieta-Etxano, Bizkaia</p>
+            <p><i class="fa-solid fa-phone"></i> Teléfono: <a href="tel:+34600782356">600 782 356</a></p>
+            <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:info@visioncreativa.com">info@visioncreativa.com</a></p>
+        </div>
+
+        <!-- Redes -->
+        <div class="footer-columna">
+            <h3>Redes</h3>
+            <ul>
+                <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    <p class="footer-copy">&copy; 2026 VisiónCreativa. Todos los derechos reservados.</p>
+</footer>
+
+    <!-- Enlace del JavaScript -->
+    <script src="js/validacion.js"></script>
+</body>
+</html>
