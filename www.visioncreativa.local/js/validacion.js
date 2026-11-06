@@ -5,21 +5,15 @@ var divExito = document.getElementById("mensajeExito");
 
 // Esta función se ejecuta cuando se pulsa "Enviar"
 function validar(evento) {
-    // Evitar que el formulario se envíe de verdad
-    evento.preventDefault();
-
+    
     // Borrar los mensajes anteriores
     divErrores.innerHTML = "";
     divExito.innerHTML = "";
 
     // Coger los valores que ha escrito el usuario
-    var nombre = document.getElementById("nombre").value;
-    var apellidos = document.getElementById("apellidos").value;
-    var edad = document.getElementById("edad").value;
     var telefono = document.getElementById("telefono").value;
     var cp = document.getElementById("cp").value;
     var email = document.getElementById("email").value;
-    var nacimiento = document.getElementById("nacimiento").value;
     var mensaje = document.getElementById("mensaje").value;
     var privacidad = document.getElementById("privacidad").checked;
 
@@ -67,6 +61,7 @@ function validar(evento) {
 
     // Si hay errores los enseña y paro aquí
     if (errores != "") {
+        evento.preventdefault();
         divErrores.innerHTML = errores;
         return;
     }
@@ -95,20 +90,6 @@ function validar(evento) {
         // Día laborable a partir de las 18:00: 8 horas más
         horas = horas + 8;
     }
-
-    // Enseñar el resumen de los datos y el tiempo estimado
-    divExito.innerHTML = `
-         <h2>Revisa tus datos</h2> 
-        <p>Nombre:${nombre} ${apellidos}</p> 
-        <p>Edad: ${edad}</p>
-        <p>Teléfono: ${telefono} </p> 
-        <p>Código postal:${cp}</p> 
-        <p>Email:${email} </p> 
-        <p>Fecha de nacimiento:${nacimiento}  </p> 
-        <p>Tipo de mensaje:${tipo}  </p> 
-        <p>Mensaje:${mensaje}  </p> 
-        <p>Tiempo estimado de respuesta: ${horas} horas</p>
-    `;
 }
 
 // Cuando se envíe el formulario, se ejecuta la función validar
