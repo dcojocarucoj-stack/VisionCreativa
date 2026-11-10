@@ -1,13 +1,3 @@
-# Práctica de reverse proxy: nginx en el puerto 80 reparte las peticiones entre los servicios.
-#
-#   docker compose up -d                       ← siempre desde esta carpeta
-#     http://localhost/              → portal (proxy/web/)
-#     http://localhost/code/         → code-server
-#     http://localhost/portainer/    → Portainer
-#
-# Solo el proxy publica un puerto ("ports"). El resto de servicios no son accesibles desde fuera:
-# se llega a ellos a través del proxy, que los encuentra por su nombre de servicio (code, portainer…).
-
 services:
   proxy:
     image: nginx:alpine
@@ -27,10 +17,27 @@ services:
     volumes:
       - ./intranet.visioncreativa.local:/config/workspace/intranet
 
+  portainer:
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    volumes:
+      - portainer_data:/data
 
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    environment:
+      - ADMINER_DEFAULT_SERVER=db
 
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD:?Falta DB_PASSWORD en .env}
+      - MARIADB_DATABASE=clase
+    volumes:
+      - db_datos:/var/lib/mysql
 
-# volumes:
-#   portainer_data:
-#   duplicati_data:
-#   kuma_data:
+volumes:
+  portainer_data:
+  db_datos:
