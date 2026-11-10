@@ -9,19 +9,24 @@
 # se llega a ellos a través del proxy, que los encuentra por su nombre de servicio (code, portainer…).
 
 services:
-  proxy:                        # reverse proxy + portal
+  proxy:
     image: nginx:alpine
     restart: unless-stopped
     ports:
-      - "80:80"                 # ¿Puerto 80 ocupado en tu PC? Usa otro: "8080:80"
+      - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/templates/default.conf.template:ro
-      - ./www.visioncreativa.local:/usr/share/nginx/html/www.visioncreativa.local
-      - ./intranet.visioncreativa.local:/usr/share/nginx/html/intranet.visioncreativa.local
-      - ./css/styles.css:/usr/share/nginx/html/www.visioncreativa.local/styles.css:ro
-      - ./css/styles.css:/usr/share/nginx/html/intranet.visioncreativa.local/styles.css:ro
-      - ./img:/usr/share/nginx/html/www.visioncreativa.local/img:ro
-      - ./img:/usr/share/nginx/html/intranet.visioncreativa.local/img:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./www.visioncreativa.local:/usr/share/nginx/html/www:ro
+      - ./intranet.visioncreativa.local:/usr/share/nginx/html/intranet:ro
+
+  code:
+    image: linuxserver/code-server:latest
+    restart: unless-stopped
+    environment:
+      - PASSWORD=${CODE_PASSWORD:?Falta CODE_PASSWORD en .env}
+    volumes:
+      - ./intranet.visioncreativa.local:/config/workspace/intranet
+
 
 
 
