@@ -7,7 +7,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./certs:/etc/nginx/certs:ro
+      - ./certs:/etc/nginx/certs
       - ./www.visioncreativa.local:/usr/share/nginx/html/www:ro
       - ./intranet.visioncreativa.local:/usr/share/nginx/html/intranet:ro
 
@@ -17,7 +17,7 @@ services:
     environment:
       - PASSWORD=${CODE_PASSWORD:?Falta CODE_PASSWORD en .env}
     volumes:
-      - ./intranet.visioncreativa.local:/config/workspace/intranet
+      - .:/config/workspace/intranet
 
   portainer:
     image: portainer/portainer-ce:latest
