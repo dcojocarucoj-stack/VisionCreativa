@@ -25,7 +25,7 @@ services:
     command:
       - --http-enabled
       - --base-url=/portainer
-      - --trusted-origins=intranet.visioncreativa.local
+      - --trusted-origins=https://intranet.visioncreativa.local
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
